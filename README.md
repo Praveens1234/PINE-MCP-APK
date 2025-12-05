@@ -1,36 +1,44 @@
-# TradingView Pine Script Validator (Android)
+# TradingView Pine Validator (Android)
 
-## 📱 The "No PC" Build Instructions
+## 🛠️ How to Build Your APK (Step-by-Step Guide)
 
-Since this is a mobile-first project and you don't have a PC to build the APK, we use **GitHub Actions** to build it for you in the cloud.
+Since you don't have a PC, we will use **GitHub** to build the app for you automatically.
 
-### Step 1: Upload to GitHub
-1. Create a new repository on GitHub (you can do this from your phone browser).
-2. Upload all the files in this folder to that repository.
-   - If you downloaded a zip, unzip it first, then upload the contents.
+### Step 1: Download & Extract
+1.  Download the **`project_source.zip`** provided in this chat.
+2.  Extract (Unzip) it on your phone or computer. You should see folders like `lib`, `android`, `.github`, etc.
 
-### Step 2: Automatic Build
-1. Once uploaded, go to the **"Actions"** tab in your repository.
-2. You will see a workflow named **"Build Android APK"** running (yellow circle).
-3. Wait for it to turn green (Success).
+### Step 2: Create a GitHub Repository
+1.  Go to [GitHub.com](https://github.com) and sign in.
+2.  Click the **+** icon and select **New repository**.
+3.  Name it `pine-validator`.
+4.  Make sure it is **Public** (or Private, but Public is easier).
+5.  Click **Create repository**.
 
-### Step 3: Download APK
-1. Tap on the successful workflow run.
-2. Scroll down to the **"Artifacts"** section.
-3. Tap **"app-release"**.
-4. GitHub will download a zip file containing your APK.
-5. Extract it and install `app-release.apk` on your phone!
+### Step 3: Upload Files
+1.  In your new repository, look for the link **"uploading an existing file"**.
+2.  Select **ALL** the files and folders you extracted in Step 1.
+    *   **Crucial:** Make sure the hidden folder `.github` and its contents (`workflows/build_apk.yml`) are uploaded. If you can't upload folders via the web interface, you might need to use "Desktop Mode" in your browser or a file uploader app.
+    *   **Alternative:** If uploading folders is hard on mobile, you can edit files directly, but uploading the zip content is best.
 
-## 🚀 Features
+### Step 4: Wait for Build
+1.  Once files are uploaded and committed (green button), click the **"Actions"** tab at the top of your repository page.
+2.  You should see a workflow named **"Build and Release APK"** running (yellow spinning icon).
+3.  Wait 3-5 minutes.
 
-- **Butter Smooth UI:** Built with Flutter for 60fps performance.
-- **Glassmorphism Design:** Modern dark theme with neon accents.
-- **Headless Automation:** Runs a hidden Desktop browser to interact with TradingView's compiler.
-- **Mobile First:** Designed specifically for touch screens.
+### Step 5: Download APK
+1.  When the circle turns **Green** (Success), click on the **"Releases"** section on the main code page (usually on the right sidebar).
+2.  You will see "Release v1.0.x".
+3.  Click on **`app-release.apk`** to download it.
+4.  Install and Enjoy!
 
-## 🛠️ Tech Stack
+---
 
-- **Framework:** Flutter (Dart)
-- **Engine:** `flutter_inappwebview` (Headless Chromium)
-- **State Management:** Provider
-- **Automation:** Custom JavaScript Injection (Ported from Playwright)
+## Files to Upload (Checklist)
+Ensure these exist in your repo:
+- `.github/workflows/build_apk.yml` (The Builder)
+- `android/` (Android settings)
+- `lib/` (The App Code)
+- `pubspec.yaml` (Configuration)
+- `analysis_options.yaml`
+- `README.md`
